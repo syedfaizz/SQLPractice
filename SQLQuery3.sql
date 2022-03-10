@@ -1,56 +1,29 @@
 ----clauses---
-create database Employeepayroll2
-create table Employeepay(
+create table emp1
+(
+	emp_id int identity(1,1) primary key,
+	emp_name varchar(40) not null,
+	emp_salary int not null,
+	start_date datetime
+)
 
-E_id int not null,
-E_name varchar(20),
-E_salary int,
-E_age int,
-E_gender varchar(20),
-E_starttime varchar(20),
-primary key(E_id)
-);
+select * from emp1
 
+insert into emp1(emp_name,emp_salary,start_date)values('Ravi',35000,GETDATE()) 
+insert into emp1(emp_name,emp_salary,start_date)values('Raj',4500,GETDATE()) 
+insert into emp1(emp_name,emp_salary,start_date)values('faizz',50000,GETDATE()) 
+insert into emp1(emp_name,emp_salary,start_date)values('sam',65000,GETDATE())
 
-insert into Employeepayroll2 values(
-1,'Sam',95000,45,'Male','25-06-2020'
-);
-
-insert into Employeepayroll2 values(
-2,'BOb',80000,21,'Male','26-06-2020'
-);
-
-insert into Employeepayroll2 values(
-3,'Anne',90000,25,'Female','27-06-2020'
-); 
-
-insert into Employeepayroll2 values(
-4,'Julin',55000,32,'Male','28-06-2020'
-);
-select * from Employeepayroll2
-
----Where---
-select * from Employeepayroll2 where E_id=2
-
-update Employeepayroll2 set  E_salary= 60000 where E_id =2
-
----order by---
-select * from Employeepayroll2 order by E_salary asc
-
-select * from Employeepayroll2 order by E_name desc
+select * from emp1 order by emp_salary
+select * from emp1 order by emp_salary asc
+select * from emp1 order by emp_salary desc
 
 
-----group by---
-select E_name from Employeepayroll2 group by E_name order by E_name
+select emp_salary from emp1 group by emp_salary
 
-select E_name, sum(E_salary)as Totalsalary from Employeepayroll2 group by E_age Having sum(E_salary)>91000
+select emp_id, sum(emp_salary) as 'Total salary' from emp1 group by emp_id
 
-
----top n---
-
-select top(2)*from Employeepayroll2 
-select top(3) * from Employeepayroll2
-select top(3) * from Employeepayroll2 order by E_salary asc
+select emp_id, sum(emp_salary) as 'Total salary' from emp1 group by emp_id Having sum(emp_salary)>35000
 
 
 
