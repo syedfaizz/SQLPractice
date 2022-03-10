@@ -41,7 +41,10 @@ select * from Employeepayroll2 order by E_name desc
 
 
 ----group by---
-select E_salary ,count(*)as noofemployee from Employeepayroll2 group by E_name
+select E_name from Employeepayroll2 group by E_name order by E_name
+
+select E_name, sum(E_salary)as Totalsalary from Employeepayroll2 group by E_age Having sum(E_salary)>91000
+
 
 ---top n---
 
