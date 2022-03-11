@@ -1,4 +1,40 @@
------View----
+------Views-----
+CREATE TABLE Departments
+(
+  ID INT PRIMARY KEY,
+  Name VARCHAR(50)
+)
+INSERT INTO Departments VALUES(1, 'IT')
+INSERT INTO Departments VALUES(2, 'HR')
+INSERT INTO Departments VALUES(3, 'Sales')
+-- Create Employee Table
+CREATE TABLE Employes
+(
+  ID INT PRIMARY KEY,
+  Name VARCHAR(50),
+  Gender VARCHAR(50),
+  DOB DATETIME,
+  DeptID INT
+)
+
+-- Populate the Employee Table with test data
+INSERT INTO Employes VALUES(1, 'Pranaya', 'Male','1996-02-29 10:53:27.060', 1)
+INSERT INTO Employes VALUES(2, 'Priyanka', 'Female','1995-05-25 10:53:27.060', 2)
+INSERT INTO Employes VALUES(3, 'Anurag', 'Male','1995-04-19 10:53:27.060', 2)
+INSERT INTO Employes VALUES(4, 'Preety', 'Female','1996-03-17 10:53:27.060', 3)
+INSERT INTO Employes VALUES(5, 'Sambit', 'Male','1997-01-15 10:53:27.060', 1)
+INSERT INTO Employes VALUES(6, 'Hina', 'Female','1995-07-12 10:53:27.060', 2)
+
+CREATE VIEW VWAllEmployees1 
+AS 
+SELECT * FROM Employes
+
+CREATE VIEW vwAllEmployees2 
+AS 
+SELECT ID, Name, Gender, DOB, DeptID 
+FROM Employes
+ 
+ SELECT * from vwAllEmployees1
 
 
 
