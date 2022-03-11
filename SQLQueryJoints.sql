@@ -76,6 +76,50 @@ FROM
     .candidates c
     FULL JOIN employees e 
         ON e.fullname = c.fullname;
+		
+	------multiple join------
+
+create table student1(
+  id int identity (1,1) primary key,
+  first_name varchar(80) not null,
+  last_name varchar (80) not null
+  );
+  
+  insert into student1(first_name,last_name) values('Sayed','Faisal')
+  insert into student1(first_name,last_name) values('p','Ali')
+  insert into student1(first_name,last_name) values('Reddy','Sham')
+  select * from student1
+
+
+   create table  Teacher(
+  id int identity (1,1) primary key,
+  first_name varchar(80) not null,
+  last_name varchar (80) not null
+  );
+
+  insert into Teacher(first_name,last_name) values('Ravi','Sharma')
+  insert into Teacher(first_name,last_name) values('Pavan','Reddy')
+  insert into Teacher(first_name,last_name) values('Raj','Kapoor')
+
+  select * from Teacher
+  
+   create table Subject(
+  id int identity (1,1) primary key,
+  name varchar(80) not null,
+  )
+ insert into Subject(name) values('English')
+ insert into Subject(name) values('French')
+ insert into Subject(name) values('Tamil')
+
+  select * From Subject
+
+ 
+
+ select * from student1 as a
+ inner join Teacher as b
+ on a.id = b.id
+ inner join Subject as c
+ on b.id=c.id;
 	
 	------cross join-----
 
