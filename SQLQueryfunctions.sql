@@ -1,3 +1,41 @@
+----INDEX-----
+create table tblEmp(
+id int primary key,
+name varchar (50),  
+salary int,
+gender varchar (40), 
+city varchar (50) 
+)
+
+Execute sp_helpindex tblEmp 
+
+insert into tblEmp values (3,'Ram',4500,'male','Canada')
+insert into tblEmp values (1,'Sai',5500,'male','Mumbai')
+insert into tblEmp values (4,'Raj',6500,'male','kurnool')
+
+
+select * from tblEmp
+
+
+create Clustered Index IX_tblEmp_gender
+on tblEmp (gender ASC)
+
+create Clustered Index IX_tblEmp_salary
+on tblEmp (salary ASC)
+
+
+
+create NonClustered Index IX_tblEmp_name
+on tblEmp(name)
+
+create NonClustered Index IX_tblEmp_city
+on tblEmp(city)
+
+
+
+
+
+
 -------functions--------
 
 CREATE TABLE Employee7(
