@@ -88,24 +88,3 @@ select * from tblemployee where Salary<30000;
 
 
 
-/* update employee record */
-Create procedure spUpdateEmployeePayroll
-(
-@name varchar(20),
-@salary money
-)
-As 
-Begin try
-update employee set salary=@salary where name=@name
-end try
-Begin catch
-SELECT
-    ERROR_NUMBER() AS ErrorNumber,
-    ERROR_STATE() AS ErrorState,
-    ERROR_PROCEDURE() AS ErrorProcedure,
-    ERROR_LINE() AS ErrorLine,
-    ERROR_MESSAGE() AS ErrorMessage;
-END CATCH  
-
-exec spUpdateEmployeePayroll
-'Debdutt',85000
